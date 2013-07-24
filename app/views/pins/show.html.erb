@@ -9,7 +9,9 @@
 			<p>
 			 by <%= @pin.user.username %>
 			</p>
-			<p><b>test</b></p>
+			<div  id="likeform">
+				<%= render :partial => "likeform" %>
+			</div>
 
 			<% if current_user == @pin.user %>
 				<%= link_to 'Edit', edit_pin_path(@pin) %> |

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username
 
-  
+  make_voter
 	def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 		user = User.where(:provider => auth.provider, :uid => auth.uid).first
 		unless user

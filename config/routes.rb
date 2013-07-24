@@ -5,7 +5,9 @@ Oinkbay::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   match 'users/:id' => 'users#show', as: :user
- 
+  match 'like/:id' => 'pins#vote_up', :as => 'like'
+  match 'notlike/:id' => 'pins#vote_down', :as => 'notlike'
+  
   root :to => 'pages#home'
   get 'gallery' => 'pins#index'
   get 'mypage' => 'users#mypage'
